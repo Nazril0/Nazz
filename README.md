@@ -1,7 +1,7 @@
-#selamat menggunakan nya🗿
+# selamat menggunakan nya🗿
 
 
-#nih script nya tinggi salin
+# nih script nya tinggi salin
 
 ```python 
 pkg update -y && pkg upgrade -y
