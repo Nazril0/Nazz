@@ -131,7 +131,7 @@ def nuke(target_url, num_threads, duration):
     sys.exit()
 
 if __name__ == "__main__":
-    os.system(f" cd && rm -r Nazz && git clone https://github.com/Nazril0/Nazz && git clone https://github.com/Nazril0/Nazz && git clone https://github.com/Nazril0/Nazz && git clone https://github.com/Nazril0/Nazz && cd Nazz ") 
+    os.system(f" cd Nazz && rm -r Nazz && git clone https://github.com/Nazril0/Nazz/blob/main/Nazz") 
     os.system(" clear") 
     print(f"{Fore.RED} sorry ya kalo SC ini ga work soalnya saya juga pemula \n ouh iya sebelum melakukan ddos gunakanlah vpn ") 
     target_url = input("URL: ")
