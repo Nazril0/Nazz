@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NAZX</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,Arial,sans-serif;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#090909,#111,#1c1c1c,#111);
+background-size:400% 400%;
+animation:bg 10s infinite ease;
+overflow:hidden;
+}
+
+@keyframes bg{
+0%{background-position:0 50%}
+50%{background-position:100% 50%}
+100%{background-position:0 50%}
+}
+
+.card{
+width:340px;
+padding:35px;
+border-radius:22px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(18px);
+border:1px solid rgba(255,255,255,.08);
+box-shadow:0 0 40px rgba(0,0,0,.5);
+text-align:center;
+}
+
+.logo{
+font-size:40px;
+font-weight:800;
+color:#fff;
+letter-spacing:4px;
+margin-bottom:10px;
+}
+
+.sub{
+color:#aaa;
+margin-bottom:25px;
+font-size:14px;
+}
+
+input{
+width:100%;
+padding:15px;
+border:none;
+outline:none;
+border-radius:14px;
+background:#222;
+color:#fff;
+font-size:15px;
+}
+
+button{
+margin-top:18px;
+width:100%;
+padding:15px;
+border:none;
+border-radius:14px;
+background:#2196f3;
+color:#fff;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+transition:.25s;
+box-shadow:0 0 20px #2196f366;
+}
+
+button:hover{
+transform:scale(1.03);
+box-shadow:0 0 35px #2196f3;
+}
+
+.loading{
+display:none;
+margin-top:18px;
+color:#8dc7ff;
+font-size:14px;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="logo">LOGIN</div>
+
+<div class="sub">
+Enter your name to continue
+</div>
+
+<input id="nama" placeholder="Your Name">
+
+<button onclick="masuk()">
+MASUK
+</button>
+
+<div class="loading" id="loading">
+Loading...
+</div>
+
+</div>
+
+<script>
+
+function masuk(){
+
+let nama=document.getElementById("nama").value.trim();
+
+if(!nama){
+alert("Masukkan nama.");
+return;
+}
+
+document.querySelector("button").disabled=true;
+document.getElementById("loading").style.display="block";
+
+setTimeout(()=>{
+location.href="webview.html";
+},1000);
+
+}
+
+</script>
+
+</body>
+</html>
