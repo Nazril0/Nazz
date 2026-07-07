@@ -1,0 +1,245 @@
+ <!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NAZX</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+html,body{
+width:100%;
+height:100%;
+overflow:hidden;
+background:#000;
+}
+
+/* HALAMAN SIAP */
+
+#start{
+position:fixed;
+inset:0;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#000,#111,#1b1b1b);
+z-index:999;
+}
+
+#start button{
+padding:18px 60px;
+font-size:26px;
+font-weight:bold;
+color:#fff;
+background:#2196F3;
+border:none;
+border-radius:18px;
+cursor:pointer;
+box-shadow:0 0 35px #2196F388;
+transition:.25s;
+}
+
+#start button:hover{
+transform:scale(1.05);
+box-shadow:0 0 50px #2196F3;
+}
+
+/* WEBVIEW */
+
+#web{
+display:none;
+width:100vw;
+height:100vh;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+grid-template-rows:1fr 1fr;
+width:100%;
+height:100%;
+gap:2px;
+background:#000;
+}
+
+iframe{
+width:100%;
+height:100%;
+border:none;
+background:#fff;
+}
+
+/* FADE */
+
+.fade{
+animation:fade .5s;
+}
+
+@keyframes fade{
+from{
+opacity:0;
+}
+to{
+opacity:1;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div id="start">
+
+<button onclick="mulai()">
+SIAP?
+</button>
+
+</div>
+
+<audio id="musik" loop>
+<source src="sre.mp3" type="audio/mpeg">
+</audio>
+
+<div id="web" class="grid">
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+ <iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+ <iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+ <iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+<iframe src="vlm.html"></iframe>
+
+</div>
+
+<script>
+
+function mulai(){
+
+const musik=document.getElementById("musik");
+
+musik.volume=1;
+
+musik.play();
+
+document.getElementById("start").style.display="none";
+
+document.getElementById("web").style.display="grid";
+
+document.getElementById("web").classList.add("fade");
+
+if(document.documentElement.requestFullscreen){
+document.documentElement.requestFullscreen();
+}
+
+}
+
+window.onbeforeunload=function(){
+return "Yakin ingin keluar?";
+};
+
+</script>
+
+</body>
+</html>
