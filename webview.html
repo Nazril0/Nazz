@@ -69,8 +69,8 @@ background:#000;
 }
 
 iframe{
-width:100%;
-height:100%;
+width:50%;
+height:50%;
 border:none;
 background:#fff;
 }
@@ -110,13 +110,34 @@ SIAP?
 
 <div id="web" class="grid">
 
-<iframe src="vlm.html"></iframe>
+<iframe data-src="vlm.html"></iframe>
 
-<iframe src="vlm.html"></iframe>
+<iframe data-src="vlm.html"></iframe>
 
-<iframe src="vlm.html"></iframe>
+<iframe data-src="vlm.html"></iframe>
 
-<iframe src="vlm.html"></iframe>
+<iframe data-src="vlm.html"></iframe>
+<iframe data-src="vlm.html"></iframe>
+
+<iframe data-src="vlm.html"></iframe>
+
+<iframe data-src="vlm.html"></iframe>
+
+<iframe data-src="vlm.html"></iframe>
+ <iframe data-src="vlm.html"></iframe>
+
+<iframe data-src="vlm.html"></iframe>
+
+<iframe data-src="vlm.html"></iframe>
+<iframe data-src="vlm.html"></iframe>
+
+<iframe data-src="vlm.html"></iframe>
+
+<iframe data-src="vlm.html"></iframe>
+
+<iframe data-src="vlm.html"></iframe>
+
+<iframe data-src="vlm.html"></iframe>
 
 </div>
 
@@ -129,6 +150,10 @@ const musik=document.getElementById("musik");
 musik.volume=1;
 
 musik.play();
+
+document.querySelectorAll("#web iframe").forEach(function(f){
+f.src=f.getAttribute("data-src");
+});
 
 document.getElementById("start").style.display="none";
 
